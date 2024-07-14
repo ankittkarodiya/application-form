@@ -5,6 +5,8 @@ import '../App.css';
 const ApplicationForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [contact, setContact] = useState('');
+  const [experience, setExperience] = useState('');
 
   const handleSubmit = (e) => {
     
@@ -15,6 +17,8 @@ const ApplicationForm = () => {
     const data = {
       'name': name,
       'email': email,
+      'contact': contact,
+      'experience': experience,
     };
   
     fetch(formUrl, {
@@ -28,7 +32,8 @@ const ApplicationForm = () => {
 
           setName("");
           setEmail("");
-          
+          setContact("");
+
         } else {
           alert('Failed to submit the form. Status: ' + response.status);
         }
@@ -59,6 +64,22 @@ const ApplicationForm = () => {
     onChange={(e) => setEmail(e.target.value)}
     placeholder="Your Email"
     required
+  />
+  <input
+    type="tel"
+    className="form-control"
+    value={contact}
+    onChange={(e) => setContact(e.target.value)}
+    placeholder="Your Contact (preferably whatsapp)"
+    required
+  />
+  <textarea
+  type="text"
+  className="form-control"
+  value={experience}
+  onChange={(e) => setExperience(e.target.value)}
+  placeholder="Share your prior experience"
+  required
   />
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>

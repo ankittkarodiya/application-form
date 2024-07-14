@@ -44,6 +44,8 @@ body {
 
 input[type="text"],
 input[type="email"],
+input[type="tel"],
+textarea[type="text"],
 button {
   width: 100%;
   padding: 10px;
